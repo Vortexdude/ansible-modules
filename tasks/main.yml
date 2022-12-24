@@ -1,0 +1,13 @@
+- lsscsi:
+    name: "{{ iqdn }}"
+    state: present
+  register: lsscsires
+
+- debug: msg="{{ lsscsires }}"
+
+- iscsiadm:
+    name: "{{ iqdn }}"
+    state: login
+  when: not lsscsires.stat.exist
+
+- debug: msg="{{ scsi_setup }}"
