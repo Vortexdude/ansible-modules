@@ -28,7 +28,7 @@ options:
 extends_documentation_fragment:
     - my_namespace.my_collection.my_doc_fragment_name
 author:
-    - Ravi Prajapati (@vortexdude)
+    - Nitin Namdev (@vortexdude)
 '''
 
 EXAMPLES = r'''
