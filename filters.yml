@@ -1,4 +1,7 @@
 ---
+files:
+  input: demo.mp4
+  output: test.mp4
 filters:
   copy:
     bg: bg_out

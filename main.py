@@ -103,6 +103,10 @@ class Utils:
         return FFMPEG_BIN
 
 
+class Filters:
+    pass
+
+
 class MediaOperation:
 
     def __init__(self):
@@ -112,7 +116,10 @@ class MediaOperation:
         self.filter_copy_inputs: list = []
         self.filter_copy_outputs: list = []
 
-    def generate_cmd(self, input_file_path: str, output_file_path: str, filter: str, duration: str = None):
+    def generate_cmd(self, filter: str, duration: str = None):
+        input_file_path = self.config['files']['input']
+        output_file_path = self.config['files']['output']
+
         if os.path.exists(input_file_path):
             FFMPEG_BIN.extend(["-i", input_file_path])
 
@@ -188,6 +195,6 @@ dummy = MediaOperation()
 
 filter_data_string = dummy.filter_generation()
 
-cmd = dummy.generate_cmd("demo.mp4", "test.mp4", filter_data_string)
+cmd = dummy.generate_cmd(filter_data_string)
 
 Utils.run_cmd(cmd)
