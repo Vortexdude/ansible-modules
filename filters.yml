@@ -1,0 +1,20 @@
+---
+filters:
+  copy:
+    bg: bg_out
+    ol: ol_out
+  scale:
+    - input: bg
+      output: bg_out
+      res: [1920, 1080]
+      filter: gray
+
+    - input: ol
+      output: ol_out
+      res: 480
+      filter: hflip
+  overlay:
+    - background: bg_out
+      overlay: ol_out
+      x: W-w
+      y: (H-h)/2
